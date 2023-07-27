@@ -17,6 +17,16 @@ wgsim: This is the command to execute the WGSIM tool.
 - frag1_ref.fastq: This is the output file where the simulated reads for the first mate will be written in FASTQ format.
 - frag2_ref.fastq: This is the output file where the simulated reads for the second mate will be written in FASTQ format.
 
+Calculating number of read pairs (N):
+
+lineCount =  `cat [testfileName].fa | wc -l``
+
+readCount =  lineCount * 50 *30 / 202
+
+`50`: Each DNA sequence (read) is assumed to be 50 base pairs long.
+`30`: 30X coverage. 
+`202`: Length of the DNA Fragment
+
 #### 2nd Step:
 
 `./bowtie2-build reference.fa bias`
@@ -58,7 +68,7 @@ time to run appx: *1m30s*
 time to run appx: *15m* - user-time: *11m*
 
 
-#### 4th step
+#### 4th Step
 
 Installing `DNAcopy` - https://bioconductor.org/packages/release/bioc/html/DNAcopy.html
 
