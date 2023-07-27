@@ -57,3 +57,10 @@ time to run appx: *1m30s*
 
 time to run appx: *15m* - user-time: *11m*
 
+
+#### 4th step
+
+Installing `DNAcopy` - https://bioconductor.org/packages/release/bioc/html/DNAcopy.html
+
+`Rscript segmentation_cbs.R` todo: configure variables.
+
