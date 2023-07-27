@@ -1,8 +1,9 @@
-# Ignore all .fa, .fasta, .sam, and .bam files
+# Ignore all .fa, .fasta, .sam, .bam, .bt2 files
 *.fa
 *.fasta
 *.sam
 *.bam
+*.bt2
 
 
 # Ignore specific files produced from bowtie2convert

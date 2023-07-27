@@ -17,22 +17,21 @@ wgsim: This is the command to execute the WGSIM tool.
 - frag1_ref.fastq: This is the output file where the simulated reads for the first mate will be written in FASTQ format.
 - frag2_ref.fastq: This is the output file where the simulated reads for the second mate will be written in FASTQ format.
 
-Calculating number of read pairs (N):
+time to run appx: *1m*
 
+**Calculating number of read pairs (N):**
 lineCount =  `cat [testfileName].fa | wc -l``
-
 readCount =  lineCount * 50 *30 / 202
-
-`50`: Each DNA sequence (read) is assumed to be 50 base pairs long.
-`30`: 30X coverage. 
-`202`: Length of the DNA Fragment
+`50`: Each DNA sequence (read) is assumed to be 50 base pairs long, `30`: 30X coverage, `202`: Length of the DNA Fragment
 
 #### 2nd Step:
 
-`./bowtie2-build reference.fa bias`
+`bowtie2-build reference.fa bias`
 This command creates an index of the reference genome (reference.fa) using Bowtie 2. The index will be stored in files with the prefix "bias" for future alignment.
 
-`./bowtie2 -p 4 -k 15 --no-mixed -x bias -1 frag1_ref.fastq -2 frag2_ref.fastq -S biasOut.sam`
+time to run appx: *1m*
+
+`bowtie2 -p 4 -k 15 --no-mixed -x bias -1 frag1_ref.fastq -2 frag2_ref.fastq -S biasOut.sam`
 
 This command performs the alignment of paired-end reads (frag1_ref.fastq and frag2_ref.fastq) to the reference genome index ("bias") using Bowtie 2. Here's a breakdown of the options used:
 
