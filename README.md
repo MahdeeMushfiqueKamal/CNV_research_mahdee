@@ -34,10 +34,10 @@ This command performs the alignment of paired-end reads (frag1_ref.fastq and fra
 - -2 frag2_ref.fastq: Specifies the file containing the second mate (read 2) of the paired-end reads.
 - -S biasOut.sam: Specifies the output file where the aligned reads will be stored in SAM format.
 
-#### 3rd Step
+
 `g++ -o bowtie2convert bowtie2convert.cpp` - compiling the C++ source code file "bowtie2convert.cpp" into an executable named "bowtie2convert 
 
-`./bowtie2convert biasOut.sam reference.fa 300` - todo: what does this program do?
+`./bowtie2convert biasOut.sam reference.fa 300` - todo: what does this program do? 300 or 500?
 
 Output Files: 
 - `counts.txt` (0 51304566 1873599.999999)
@@ -46,4 +46,14 @@ Output Files:
 - `linking.sam`
 - `myout.sam`
 - `singletons.sam`
+
+time to run appx: *1m30s*
+
+#### 3rd Step
+
+`g++ -w -o cgal_perPositionMapping cgal_perPositionMapping.cpp`
+
+`./cgal_perPositionMapping reference.fa` - todo: is this command even right? 
+
+time to run appx: *15m* - user-time: *11m*
 

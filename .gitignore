@@ -9,3 +9,11 @@
 counts.txt
 stat.txt
 unmapped.txt
+
+
+# Ignore specific files produced from cgal_perPositionMapping
+gcValue.txt
+info1.txt
+infoOutput1.txt
+out.txt
+readsInPerPositionGenome.txt
