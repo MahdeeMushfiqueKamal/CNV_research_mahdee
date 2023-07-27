@@ -38,3 +38,12 @@ This command performs the alignment of paired-end reads (frag1_ref.fastq and fra
 `g++ -o bowtie2convert bowtie2convert.cpp` - compiling the C++ source code file "bowtie2convert.cpp" into an executable named "bowtie2convert 
 
 `./bowtie2convert biasOut.sam reference.fa 300` - todo: what does this program do?
+
+Output Files: 
+- `counts.txt` (0 51304566 1873599.999999)
+- `stat.txt` (7700001 49248 101 300)
+- `unmapped.txt`
+- `linking.sam`
+- `myout.sam`
+- `singletons.sam`
+

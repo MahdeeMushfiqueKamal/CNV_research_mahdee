@@ -1,0 +1,11 @@
+# Ignore all .fa, .fasta, .sam, and .bam files
+*.fa
+*.fasta
+*.sam
+*.bam
+
+
+# Ignore specific files produced from bowtie2convert
+counts.txt
+stat.txt
+unmapped.txt
