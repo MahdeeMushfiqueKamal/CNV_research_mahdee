@@ -1,0 +1,5 @@
+docker run mgud/conanvarvar --help
+
+docker run -it --rm -v /home/mmk/BAM_files:/biasOut.bam -e GUI=true -p 80:3838 mgud/conanvarvar --outdir=/home/mmk/cnv_research/conanvarvar_exploration/output
+
+Open http://127.0.0.1/ in browser.
