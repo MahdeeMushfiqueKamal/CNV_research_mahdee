@@ -1,10 +1,17 @@
-myout.sam# CNV_research_mahdee
+# CNV_research_mahdee
 
-singletons.sam## Copy Number Variation Estimation
+## Copy Number Variation Estimation
 
 ### For Reference:
 
 #### 1st step:
+
+**Calculating number of read pairs (N):**
+- lineCount =  `cat [testfileName].fa | wc -l``
+- readCount =  lineCount * 50 *30 / 202
+- `50`: Each DNA sequence (read) is assumed to be 50 base pairs long, 
+- `30`: 30X coverage, 
+- `202`: Length of the DNA Fragment
 
 `wgsim -d 300 -N 7700000 -1 101 -2 101 reference.fa frag1_ref.fastq frag2_ref.fastq`
 
@@ -18,11 +25,6 @@ wgsim: This is the command to execute the WGSIM tool.
 - frag2_ref.fastq: This is the output file where the simulated reads for the second mate will be written in FASTQ format.
 
 time to run appx: *1m*
-
-**Calculating number of read pairs (N):**
-lineCount =  `cat [testfileName].fa | wc -l``
-readCount =  lineCount * 50 *30 / 202
-`50`: Each DNA sequence (read) is assumed to be 50 base pairs long, `30`: 30X coverage, `202`: Length of the DNA Fragment
 
 #### 2nd Step:
 
