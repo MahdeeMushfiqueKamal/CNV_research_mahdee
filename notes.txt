@@ -1,0 +1,20 @@
+mmk@mmk:~/cnv_research/wgsim$ sha256sum frag1_ref_check.fastq
+9045f4c9a65254be148b779148a806ff63051b62ac228b110d0f54166341e3da  frag1_ref_check.fastq
+mmk@mmk:~/cnv_research/wgsim$ sha256sum frag1_ref.fastq
+5c0c1b2bdaee54b64ba36b5d706745ea9bc9656e25bd07976325165a7556fc68  frag1_ref.fastq
+30a23cb226f07d00aca89533af6be4e0cfd7b15e57cebe5f498a7dff4f4ff5f4  frag1_ref_check1.fastq
+
+
+
+
+Conclusions: 
+wgsim (samtools installation) and ./wgsim (cloned and compiled from gh-repository) doesn't return the same result. 
+2 consecutive run also doesn't provide same file. 
+Any way to set the seed? 
+
+
+
+Does `./bowtie2convert biasOut.sam reference.fa 300` this command modify the reference.fa file?
+mmk@mmk:~/cnv_research/freah start$ sha256sum reference.fa 
+5236eb755118f4bbd688ccf8e6b0b8a71f76b2747487d4d91dfb933da6495586  reference.fa
+5236eb755118f4bbd688ccf8e6b0b8a71f76b2747487d4d91dfb933da6495586  reference.fa

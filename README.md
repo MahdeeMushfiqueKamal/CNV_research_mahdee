@@ -1,6 +1,6 @@
-# CNV_research_mahdee
+myout.sam# CNV_research_mahdee
 
-## Copy Number Variation Estimation
+singletons.sam## Copy Number Variation Estimation
 
 ### For Reference:
 
@@ -43,10 +43,13 @@ This command performs the alignment of paired-end reads (frag1_ref.fastq and fra
 - -2 frag2_ref.fastq: Specifies the file containing the second mate (read 2) of the paired-end reads.
 - -S biasOut.sam: Specifies the output file where the aligned reads will be stored in SAM format.
 
+time to run appx: *45m*
+
 
 `g++ -o bowtie2convert bowtie2convert.cpp` - compiling the C++ source code file "bowtie2convert.cpp" into an executable named "bowtie2convert 
 
-`./bowtie2convert biasOut.sam reference.fa 300` - todo: what does this program do? 300 or 500?
+`./bowtie2convert biasOut.sam reference.fa 300` 
+- todo: what does this program do? 300 or 500?
 
 Output Files: 
 - `counts.txt` (0 51304566 1873599.999999)
@@ -58,14 +61,49 @@ Output Files:
 
 time to run appx: *1m30s*
 
+Does this command modify the `reference.fa`? - NO
+
 #### 3rd Step
 
 `g++ -w -o cgal_perPositionMapping cgal_perPositionMapping.cpp`
 
-`./cgal_perPositionMapping reference.fa` - todo: is this command even right? 
+`./cgal_perPositionMapping reference.fa` 
+
+Required Files: 
+1. `myout.sam` - 'Can't open map file' error if missing. 
+2. `stat.txt` - No error message but segmentation fault if missing. 
+
+- todo: is this command even right? What does it do? 
+
+Output: 
+- `gcValue.txt`
+- `info1.txt`
+- `infoOutput1.txt`
+- `out.txt`
+- `readsInPerPositionGenome.txt`
 
 time to run appx: *15m* - user-time: *11m*
 
+
+- todo: what files to get for analysis from this 3 steps?
+
+
+### For simulated testfiles:
+
+#### 1st step:
+- todo: what are these [testfileName]s?
+lineCount =  `cmd: cat [testfileName].fa | wc -l`
+readCount =  lineCount * 50 *30/202
+`wgsim -d 300 -N readCount -1 101 -2 101 test.fasta frag1Copy_test.fastq frag2Copy_test.fastq`
+
+
+#### 2nd step
+`bowtie2-build reference.fa bias`
+`bowtie2 -p 4 -k 15 --no-mixed -x bias -1 frag1Copy_test.fastq -2 frag2Copy_test.fastq -S biasOut.sam`
+`./bowtie2convert biasOut.sam reference.fa 500`
+
+#### 3rd step
+`./cgal_perPositionMapping reference.fa` 
 
 #### 4th Step
 
